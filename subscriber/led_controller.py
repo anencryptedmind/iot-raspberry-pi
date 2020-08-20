@@ -30,6 +30,12 @@ class LedControlSubscribeCallback(SubscribeCallback):
       print("turning LED off!\n")
       GPIO.output(LED_PIN,False)
 
+  def presence(self, pubnub, event):
+    """handle presence events"""
+
+  def status(self, pubnub, event):
+    """handle status events"""	  
+
 pubnub.add_listener(LedControlSubscribeCallback())
 pubnub.subscribe().channels(CHANNEL).execute()
 
